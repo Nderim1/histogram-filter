@@ -92,8 +92,8 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 
 	int height = grid.size();
 	int width = grid[0].size();
-	vector < vector <float> > newGrid(height, vector<float> (width,0.0));
-	vector< vector<float> > window(height, vector<float> (width,0.0));
+	vector < vector <float> > newGrid;
+	vector< vector<float> > window;
 	vector< vector<float> > new_v(height, vector<float> (width,0.0));
 	float center_prob = 1.0-blurring;
 	float corner_prob = blurring / 12.0;
@@ -112,8 +112,8 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 			for (int dx=-1; dx<2; ++dx) {
 				for (int dy=-1; dy<2; ++dy) {
 					float mult = window[dx+1][dy+1];
-					int new_i = (i+dy) % height;
-					int new_j = (j+dy) % width;
+					int new_i = (i+dy+height) % height;
+					int new_j = (j+dy+width) % width;
 					new_v.at(new_i).at(new_j) = grid_val + mult * grid_val;
 				}
 			}

@@ -42,7 +42,7 @@ vector< vector <float> > initialize_beliefs(vector< vector <char> > grid) {
 
 	int height = grid.size();
 	int width = grid[0].size();
-	vector< vector <float> > newGrid = zeros(height, width);
+	vector< vector <float> > newGrid;
 	int area = height * width;
 	float beliefe_per_cel = 1.0 / area;
 
