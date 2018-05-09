@@ -161,7 +161,7 @@ vector< vector <float> > move(int dy, int dx,
 	vector < vector <float> > newGrid = zeros(height, width);
 
 	for (int i=0; i<height; ++i) {
-		for (int j=0; j<beliefs[i].size(); ++j) {
+		for (int j=0; j<width; ++j) {
 			int new_i = (i + dy) % height;
 			int new_j = (j + dx) % width;
 			newGrid[new_i][new_j] = beliefs[i][j]; 
